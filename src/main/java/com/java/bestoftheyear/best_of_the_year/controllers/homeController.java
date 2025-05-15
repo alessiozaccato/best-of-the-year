@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/")
-public class homeController {
+public class HomeController {
 
     @GetMapping("/")
     public String getMethodName(Model model, @RequestParam String name) {
