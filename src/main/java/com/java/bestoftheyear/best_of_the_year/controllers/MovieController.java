@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.java.bestoftheyear.best_of_the_year.classess.Movie;
 
+
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 
 @Controller
@@ -29,6 +31,16 @@ public class MovieController {
     public String getMovieList(Model model) {
         model.addAttribute("movies", getBestMovies());
         return "movies";
+    }
+
+    @GetMapping("/movies/{id}")
+    public String getMovieList(Model model,@PathVariable int id) {
+        for (Movie movie : getBestMovies()) {
+            if (movie.getId()==id) {
+                model.addAttribute(movie);
+            } 
+        }
+        return "pageById";
     }
     
 
