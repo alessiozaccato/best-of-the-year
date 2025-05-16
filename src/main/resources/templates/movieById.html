@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Best songs</title>
+    <title>Best of the year</title>
     <th:block th:replace ="~{fragments :: style}"></th:block>
 
 </head>
 <body>
-
     <th:block th:replace="~{fragments::navbar}" />
 
-    <!-- <ul>
-        <li th:each = "song : ${songs}" th:text="|${song.title} ${song.id}|"></li>
-    </ul> -->
-
-    <th:block th:replace="~{fragments :: itemList(collectionItems=${songs},path=${'songs'})}"></th:block>
+    <th:block th:if="${movie != null}">
+        <h1 th:text="${movie.title}"/>
+    </th:block>
+    <th:block th:if="${movie == null} ">
+        <h1 th:text="|nessun elemento trovato ${id}|"></h1>
+    </th:block>
+   
     
 </body>
 </html>

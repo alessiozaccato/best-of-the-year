@@ -5,12 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Best movies</title>
+    <th:block th:replace="~{fragments::style}" />
 </head>
 
 <body>
-    <ul>
+    <th:block th:replace="~{fragments::navbar}" />
+
+    <!-- <ul>
         <li th:each="film : ${movies}" th:text="|${film.title} ${film.id}|"></li>
-    </ul>
+    </ul> -->
+
+    <th:block th:replace="~{fragments::itemList(collectionItems=${movies},path=${'movies'})}"></th:block>
+
 
 </body>
 

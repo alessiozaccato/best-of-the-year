@@ -4,9 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Best of the year</title>
+    <th:block th:replace ="~{fragments :: style}"></th:block>
+
 </head>
 <body>
+    <th:block th:replace="~{fragments::navbar}" />
 
-    <h1 th:text="${song.title}"/>
+
+    <th:block th:if="${song != null}">
+        <h1 th:text="${song.title}"/>
+    </th:block>
+    <th:block th:if="${song == null} ">
+        <h1 th:text="|nessun elemento trovato ${id}|"></h1>
+    </th:block>
+   
 </body>
 </html>

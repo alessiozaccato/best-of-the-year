@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Best of the year</title>
+    <th:block th:replace="~{fragments::style}" />
 </head>
-<body>
 
-    <h1 th:text="|best of the year ${name}|"/>
+<body>
     
+    <th:block th:replace="~{fragments::navbar}" />
+    <h1 class="text-danger text-center" th:text="|best of the year ${name}|" />
+    <div class="container text-center">
+        <img
+            th:src="@{/imgs/musicFilm.jfif}"
+            class="img-fluid w-50 rounded-top"
+            alt="hero"
+        />
+        
+    </div>
+
 </body>
+
 </html>
