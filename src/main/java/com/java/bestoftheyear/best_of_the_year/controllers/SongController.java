@@ -7,9 +7,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.java.bestoftheyear.best_of_the_year.classess.Song;
+
+import jakarta.websocket.server.PathParam;
 
 @Controller
 @RequestMapping("/")
@@ -28,5 +30,16 @@ public class SongController {
         model.addAttribute("songs", getBestSong());
         return "songs";
     }
+
+    @GetMapping("/songs/{id}")
+    public String getSongById(Model model,@PathVariable int id) {
+        for ( Song song : getBestSong()) {
+            if (song.getId()==id) {
+                model.addAttribute(song);
+            }
+        }
+        return "songById";
+    }
+
 
 }

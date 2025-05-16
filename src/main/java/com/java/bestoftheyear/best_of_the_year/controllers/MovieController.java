@@ -34,7 +34,7 @@ public class MovieController {
     }
 
     @GetMapping("/movies/{id}")
-    public String getMovieList(Model model,@PathVariable int id) {
+    public String getMovieById(Model model,@PathVariable int id) {
         for (Movie movie : getBestMovies()) {
             if (movie.getId()==id) {
                 model.addAttribute(movie);
